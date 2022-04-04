@@ -177,7 +177,7 @@ const GamePlay = () => {
           </button>
           <button
             className="button"
-            hidden={false} // -------------- Pause
+            hidden={false} // -------------- Pause/Quit
             onClick={'Pause' == pauseQuittitle ? pauseHandler : quitHandler}
           >
             {pauseQuittitle}
