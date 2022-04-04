@@ -64,6 +64,7 @@ const GamePlay = () => {
     disableButton = true;
     hideGameplay = false;
     x = true;
+    pauseQuittitle = 'Pause';
     setCount(0);
     setPause(true);
   };
