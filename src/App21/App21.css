@@ -1,0 +1,17 @@
+.app21 {
+  border-radius: 12px;
+  background-color: rgb(170, 209, 182);
+  margin: 2rem auto;
+  width: 50rem;
+  height: 11.5rem;
+  max-width: 50%;
+  color: rgb(2, 2, 2);
+  border: 2px solid #000000;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.center {
+  display:flex;
+justify-content: center;
+}
