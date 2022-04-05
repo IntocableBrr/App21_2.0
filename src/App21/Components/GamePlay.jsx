@@ -26,8 +26,8 @@ const GamePlay = () => {
   };
 
   const backHandler=()=>{
-    hidePausemenu === false
-      hideGameplay = false;
+    hideGameplay = false;
+    setPause(true);      
   }
 
   const pauseHandler = () => {
