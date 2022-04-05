@@ -20,15 +20,15 @@ const GamePlay = () => {
   const [hideOptions, setOptions] = useState(true);
   const [hidePausemenu, setPause] = useState(true);
   let [count, setCount] = useState(0);
- 
+
   const slideHandler = (event) => {
     setSlide((event.target.value - 1500) * -1);
   };
 
   const backHandler = () => {
     hideGameplay = false;
-    setPause(true);      
-  }
+    setPause(true);
+  };
 
   const pauseHandler = () => {
     if (hidePausemenu === false) {
@@ -211,8 +211,12 @@ const GamePlay = () => {
             onChange={slideHandler}
           />
         </Box>
-        <button clasName="option_buttons" onClick={saveHandler}>Save</button>
-        <button clasName="option_buttons" onClick={backHandler}>Back</button>
+        <button className="option_buttons" onClick={saveHandler}>
+          Save
+        </button>
+        <button className="option_buttons" onClick={backHandler}>
+          Back
+        </button>
       </div>
       <div className="pause_menu" hidden={hidePausemenu}>
         <button className="pause_menu_buttons" onClick={pauseHandler}>
