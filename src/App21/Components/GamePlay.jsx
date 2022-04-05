@@ -19,8 +19,11 @@ const GamePlay = () => {
   const [currentSlide, setSlide] = useState(null);
   const [hideOptions, setOptions] = useState(true);
   const [hidePausemenu, setPause] = useState(true);
-
   let [count, setCount] = useState(0);
+
+  const slideHandler = (event) => {
+    setSlide((event.target.value - 1500) * -1);
+  };
 
   const pauseHandler = () => {
     if (hidePausemenu === false) {
@@ -53,10 +56,6 @@ const GamePlay = () => {
     }
   };
 
-  const slideHandler = (event) => {
-    setSlide(event.target.value);
-  };
-
   const retryHandler = () => {
     hideRetryQuit = true;
     message = 'Good luck';
@@ -68,6 +67,7 @@ const GamePlay = () => {
     setCount(0);
     setPause(true);
   };
+
   const quitHandler = () => {
     hideGameplay = true;
     hideMainmenu = false;
@@ -90,13 +90,14 @@ const GamePlay = () => {
     setStartQuitgame();
   };
 
-  const clickHandler = (event) => {
+  const gameplayHandler = (event) => {
     disableButton = true;
     x = true;
     if (count < 21) {
       setCount(parseInt(event.target.value) + count);
     }
   };
+
   if ((count > 20) & (x === false) & (userWon === false)) {
     message = 'Victory';
     userWon === true;
@@ -137,46 +138,46 @@ const GamePlay = () => {
   }
   return (
     <div>
-      <div hidden={hideGameplay}>
+      <div className="gameplay" hidden={hideGameplay}>
         <h4 className="center">{message}</h4>
         <h3 className="center">{count}</h3>
         <div className="center">
           <button
             hidden={hideButtons}
-            className="button"
+            className="gameplay_buttons"
             disabled={disableButton} // -------------- 1
             value="1"
-            onClick={clickHandler}
+            onClick={gameplayHandler}
           >
             1
           </button>
           <button
             hidden={hideButtons}
-            className="button"
+            className="gameplay_buttons"
             disabled={disableButton} // -------------- 2
             value="2"
-            onClick={clickHandler}
+            onClick={gameplayHandler}
           >
             2
           </button>
           <button
             hidden={hideButtons}
-            className="button"
+            className="gameplay_buttons"
             disabled={disableButton} // -------------- 3
             value="3"
-            onClick={clickHandler}
+            onClick={gameplayHandler}
           >
             3
           </button>
           <button
-            className="button"
+            className="gameplay_buttons"
             hidden={hideRetryQuit} // -------------- Retry
             onClick={retryHandler}
           >
             Retry
           </button>
           <button
-            className="button"
+            className="gameplay_buttons"
             hidden={false} // -------------- Pause/Quit
             onClick={'Pause' == pauseQuittitle ? pauseHandler : quitHandler}
           >
@@ -184,30 +185,43 @@ const GamePlay = () => {
           </button>
         </div>
       </div>
-      <div hidden={hideMainmenu}>
-        <button onClick={startHandler}>Start</button>
-        <button onClick={optionHandler}>Options</button>
-        <button>Instructions</button>
-        <button>Exit</button>
+      <div className="main_menu" hidden={hideMainmenu}>
+        <button className="main_buttons" onClick={startHandler}>
+          Start
+        </button>
+        <button className="main_buttons" onClick={optionHandler}>
+          Options
+        </button>
+        <button className="main_buttons">Instructions</button>
+        <button className="main_buttons">Exit</button>
       </div>
-      <div hidden={hideOptions}>
+      <div className="options_menu" hidden={hideOptions}>
         <h4>Speed</h4>
         <Box sx={{ width: 175 }}>
           <Slider
-            defaultValue={0}
+            defaultValue={1000}
             step={1}
             min={1}
-            max={2000}
+            max={1500}
             onChange={slideHandler}
+            isRtl={false}
           />
         </Box>
         <button onClick={saveHandler}>Save</button>
       </div>
-      <div hidden={hidePausemenu}>
-        <button onClick={pauseHandler}>Continue</button>
-        <button onClick={retryHandler}>Retry</button>
-        <button onClick={optionHandler}>Options</button>
-        <button onClick={quitHandler}>Quit</button>
+      <div className="pause_menu" hidden={hidePausemenu}>
+        <button className="pause_menu_buttons" onClick={pauseHandler}>
+          Continue
+        </button>
+        <button className="pause_menu_buttons" onClick={optionHandler}>
+          Options
+        </button>
+        <button className="pause_menu_buttons" onClick={retryHandler}>
+          Retry
+        </button>
+        <button className="pause_menu_buttons" onClick={quitHandler}>
+          Quit
+        </button>
       </div>
     </div>
   );

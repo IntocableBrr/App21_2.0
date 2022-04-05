@@ -1,10 +1,40 @@
 /*justify-content: end;*/
 /*justify-content: start;*/
 
-.button {
+.gameplay_buttons {
   margin: 0.2rem;
   width: 3.5rem;
   height: 2rem;
   border-radius: 12px;
   font-weight: bold;
+}
+
+.main_buttons{
+  margin: 0.2rem;
+  width: 5.6rem;
+  height: 2rem;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.pause_menu_buttons{
+  margin: 0.2rem;
+  width: 5.6rem;
+  height: 2rem;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.pause_menu{
+  background-color: rgb(227, 255, 150);
+  color: rgb(2, 2, 2);
+  border: 2px solid #000000;
+  border-radius: 12px;
+}
+
+.options_menu{
+  background-color: rgb(150, 248, 255);
+  color: rgb(2, 2, 2);
+  border: 2px solid #000000;
+  border-radius: 12px;
 }
