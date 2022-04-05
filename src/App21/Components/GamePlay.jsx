@@ -25,7 +25,7 @@ const GamePlay = () => {
     setSlide((event.target.value - 1500) * -1);
   };
 
-  const backHandler=()=>{
+  const backHandler = () => {
     hideGameplay = false;
     setPause(true);      
   }
