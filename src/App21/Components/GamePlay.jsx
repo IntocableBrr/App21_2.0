@@ -20,7 +20,7 @@ const GamePlay = () => {
   const [hideOptions, setOptions] = useState(true);
   const [hidePausemenu, setPause] = useState(true);
   let [count, setCount] = useState(0);
-
+  //hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
   const slideHandler = (event) => {
     setSlide((event.target.value - 1500) * -1);
   };
