@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './GamePlay.css';
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+//let ab = 500;
 let pauseQuittitle = 'Pause';
 let onPause = false;
 let speed = 500;
@@ -16,19 +17,10 @@ let x = false; // Becomes true when user starts gameplay so that it can go throu
 
 const GamePlay = () => {
   const [, setStartQuitgame] = useState(null);
-  const [currentSlide, setSlide] = useState(null);
+  const [currentSlide, setSlide] = useState(500);
   const [hideOptions, setOptions] = useState(true);
   const [hidePausemenu, setPause] = useState(true);
   let [count, setCount] = useState(0);
-
-  const slideHandler = (event) => {
-    setSlide((event.target.value - 1500) * -1);
-  };
-
-  const backHandler = () => {
-    hideGameplay = false;
-    setPause(true);
-  };
 
   const pauseHandler = () => {
     if (hidePausemenu === false) {
@@ -48,8 +40,18 @@ const GamePlay = () => {
     setPause(true);
   };
 
-  const saveHandler = () => {
-    speed = currentSlide;
+  const slideHandler = (event) => {
+    setSlide((event.target.value - 1500) * -1);
+  };
+
+  const savediscardHandler = (event) => {
+    if (event.target.value === 'Save') {
+      speed = currentSlide;
+    } else if (event.target.value === 'Discard') {
+      setSlide(speed);
+      console.log(ab, 'discard');
+    }
+
     if (onPause === true) {
       hideGameplay = true;
       setOptions(true);
@@ -204,18 +206,26 @@ const GamePlay = () => {
         <h4>Speed</h4>
         <Box sx={{ width: 175 }}>
           <Slider
-            defaultValue={1000}
+            value={(currentSlide - 1500) * -1}
             step={1}
             min={1}
             max={1500}
             onChange={slideHandler}
           />
         </Box>
-        <button className="option_buttons" onClick={saveHandler}>
+        <button
+          className="option_buttons"
+          value="Save"
+          onClick={savediscardHandler}
+        >
           Save
         </button>
-        <button className="option_buttons" onClick={backHandler}>
-          Back
+        <button
+          className="option_buttons"
+          value="Discard"
+          onClick={savediscardHandler}
+        >
+          Discard
         </button>
       </div>
       <div className="pause_menu" hidden={hidePausemenu}>

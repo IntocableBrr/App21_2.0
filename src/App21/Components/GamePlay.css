@@ -29,8 +29,8 @@
   border-radius: 12px;
   background-color: rgb(170, 195, 209);
   margin: 2rem auto;
-  width: 50rem;
-  height: 11.5rem;
+  width: 6rem;
+  height: 10rem;
   max-width: 50%;
   color: rgb(2, 2, 2);
   border: 2px solid #000000;
@@ -42,7 +42,7 @@
   border-radius: 12px;
   background-color: rgb(199, 209, 170);
   margin: 2rem auto;
-  width: 50rem;
+  width: 11.7rem;
   height: 11.5rem;
   max-width: 50%;
   color: rgb(2, 2, 2);
@@ -55,8 +55,8 @@
   border-radius: 12px;
   background-color: rgb(209, 170, 170);
   margin: 2rem auto;
-  width: 50rem;
-  height: 11.5rem;
+  width: 16rem;
+  height: 10rem;
   max-width: 50%;
   color: rgb(2, 2, 2);
   border: 2px solid #000000;
@@ -68,8 +68,8 @@
   border-radius: 12px;
   background-color: rgb(170, 209, 182);
   margin: 2rem auto;
-  width: 50rem;
-  height: 11.5rem;
+  width: 12rem;
+  height: 12rem;
   max-width: 50%;
   color: rgb(2, 2, 2);
   border: 2px solid #000000;
@@ -79,7 +79,7 @@
 
 .option_buttons {
   margin: 0.2rem;
-  width: 3.5rem;
+  width: 4rem;
   height: 2rem;
   border-radius: 12px;
   font-weight: bold;
