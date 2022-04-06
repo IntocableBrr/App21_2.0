@@ -8,34 +8,58 @@ let onPause = false;
 let speed = 500;
 let message = 'Good luck';
 let disableButton = true;
-let userWon = false; 
-let hideRetryQuit = true;
-let hideGameplay = true;
-let hideMainmenu = false;
-let hideButtons = false;
+let userWon = false;
+
+//let hideRetryQuit = true;
+//let hideGameplay = true;
+//let hideMainMenu = false;
+//let hideButtons = false;
 let x = false; // Becomes true when user starts gameplay so that it can go throug the algorithm and the computer can make the first play. Also becomes true on buttons 1-3 clicks so that computer can make the next play. Becomes false after it goes through the algorithm to prevent the computer from playing 2 times in a row.
 
 const GamePlay = () => {
-  const [, setStartQuitgame] = useState(null);
+  let [hideRetryQuit, setRetryQuit] = useState(true);
+  const [hideGameplay, setGameplay] = useState(true);
+  const [hideMainMenu, setMainMenu] = useState(false);
+  let [hideButtons, setButtons] = useState(false);
+
+  // const [, setStartQuitgame] = useState(null);
   const [currentSlide, setSlide] = useState(500);
   const [hideOptions, setOptions] = useState(true);
   const [hidePausemenu, setPause] = useState(true);
+  const [hideInstructions, setInstructions] = useState(true);
   let [count, setCount] = useState(0);
+
+  const instructionsbackHandler = (event) => {
+    if (event.target.value === 'Back') {
+      //hideMainMenu = false;
+      setMainMenu(false);
+      setInstructions(true);
+      console.log('working boss!');
+    } else {
+      // hideMainMenu = true;
+      setMainMenu(true);
+      setInstructions(false);
+    }
+  };
 
   const pauseHandler = () => {
     if (hidePausemenu === false) {
-      hideGameplay = false;
+      //hideGameplay = false;
+      setGameplay(false);
       setPause(true);
     } else {
-      hideGameplay = true;
+      //hideGameplay = true;
+      setGameplay(true);
       setPause(false);
     }
     onPause = true;
   };
 
   const optionHandler = () => {
-    hideMainmenu = true;
-    hideGameplay = true;
+    //hideMainMenu = true;
+    setMainMenu(true);
+    //hideGameplay = true;
+    setGameplay(true);
     setOptions(false);
     setPause(true);
   };
@@ -52,22 +76,27 @@ const GamePlay = () => {
     }
 
     if (onPause === true) {
-      hideGameplay = true;
+      //hideGameplay = true;
+      setGameplay(true);
       setOptions(true);
       setPause(false);
     } else {
-      hideMainmenu = false;
+      // hideMainMenu = false;
+      setMainMenu(false);
       setOptions(true);
       setPause(true);
     }
   };
 
   const retryHandler = () => {
-    hideRetryQuit = true;
+    //hideRetryQuit = true;
+    setRetryQuit(true);
     message = 'Good luck';
-    hideButtons = false;
+    //hideButtons = false;
+    setButtons(false);
     disableButton = true;
-    hideGameplay = false;
+    //hideGameplay = false;
+    setGameplay(false);
     x = true;
     pauseQuittitle = 'Pause';
     setCount(0);
@@ -75,25 +104,31 @@ const GamePlay = () => {
   };
 
   const quitHandler = () => {
-    hideGameplay = true;
-    hideMainmenu = false;
+    //hideGameplay = true;
+    setGameplay(true);
+    //hideMainMenu = false;
+    setMainMenu(false);
     onPause = false;
     setCount();
-    setStartQuitgame();
+    // setStartQuitgame();
     setPause(true);
   };
 
   const startHandler = () => {
     x = true;
     disableButton = true;
-    hideGameplay = false;
-    hideMainmenu = true;
+    // hideGameplay = false;
+    setGameplay(false);
+    // hideMainMenu = true;
+    setMainMenu(true);
     message = 'Good luck';
-    hideRetryQuit = true;
-    hideButtons = false;
+    //hideRetryQuit = true;
+    setRetryQuit(true);
+    //hideButtons = false;
+    setButtons(false);
     pauseQuittitle = 'Pause';
     setCount(0);
-    setStartQuitgame();
+    //setStartQuitgame();
   };
 
   const gameplayHandler = (event) => {
@@ -139,7 +174,9 @@ const GamePlay = () => {
   } else if ((count > 20) & (x === true)) {
     message = 'Loser 😭';
     hideRetryQuit = false;
+    //setRetryQuit(false);
     hideButtons = true;
+    //setButtons(true);
     pauseQuittitle = 'Quit';
   }
   return (
@@ -191,14 +228,21 @@ const GamePlay = () => {
           </button>
         </div>
       </div>
-      <div className="main_menu" hidden={hideMainmenu}>
+      <div className="main_menu" hidden={hideMainMenu}>
+        <h1 className="center">21 And Over</h1>
         <button className="main_buttons" onClick={startHandler}>
           Start
         </button>
         <button className="main_buttons" onClick={optionHandler}>
           Options
         </button>
-        <button className="main_buttons">Instructions</button>
+        <button
+          onClick={instructionsbackHandler}
+          value="Instructions"
+          className="main_buttons"
+        >
+          Instructions
+        </button>
         <button className="main_buttons">Exit</button>
       </div>
       <div className="options_menu" hidden={hideOptions}>
@@ -241,11 +285,29 @@ const GamePlay = () => {
           Quit
         </button>
       </div>
+      <div hidden={hideInstructions} className="instructions_menu">
+        <h3>
+          There are <em className="number_4">4</em> things you need to know
+        </h3>
+        <ol>
+          <li className="list_item">You can only make one play per turn</li>
+          <li className="list_item">
+            The play you make will be added to the count
+          </li>
+          <li className="list_item">Whoever goes 21 or over loses</li>
+          <li className="list_item_4">
+            You are better of not making the first play
+          </li>
+        </ol>
+        <button
+          value="Back"
+          onClick={instructionsbackHandler}
+          className="instructions_button"
+        >
+          Back
+        </button>
+      </div>
     </div>
   );
 };
 export default GamePlay;
-
-//setTimeout(() => {
-//disableButton = false;
-//}, 1500);  used to have this before I created the main menu

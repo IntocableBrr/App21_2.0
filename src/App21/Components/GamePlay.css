@@ -84,3 +84,28 @@
   border-radius: 12px;
   font-weight: bold;
 }
+
+.instructions_menu {
+  border-radius: 12px;
+  background-color: rgb(208, 170, 209);
+  margin: 2rem auto;
+  max-width: 50%;
+  color: rgb(2, 2, 2);
+  border: 2px solid #000000;
+  font-weight: bold;
+  padding: 1rem;
+  width: 23rem;
+  height: rem;
+}
+
+.instructions_button {
+  margin: 0.2rem;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.list_item {
+  padding: 0.3rem;
+}
