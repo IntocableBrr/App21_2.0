@@ -9,7 +9,6 @@ let message = 'Good luck';
 let disableButton = true;
 let userWon = false;
 let x = false; // Becomes true when user starts gameplay so that it can go throug the algorithm and the computer can make the first play. Also becomes true on buttons 1-3 clicks so that computer can make the next play. Becomes false after it goes through the algorithm to prevent the computer from playing 2 times in a row.
-
 const GamePlay = () => {
   let [hideRetryQuit, setRetryQuit] = useState(true);
   let [hideButtons, setButtons] = useState(false);
