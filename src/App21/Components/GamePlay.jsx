@@ -191,7 +191,8 @@ const GamePlay = () => {
       </div>
       <div className="main_menu" hidden={hideMainMenu}>
         <h1 className="center">21 And Over</h1>
-        <button className="main_buttons" onClick={startHandler}>
+        
+        <div className="center"><button className="main_buttons" onClick={startHandler}>
           Start
         </button>
         <button className="main_buttons" onClick={optionHandler}>
@@ -205,6 +206,7 @@ const GamePlay = () => {
           Instructions
         </button>
         <button className="main_buttons">Exit</button>
+        </div>
       </div>
       <div className="options_menu" hidden={hideOptions}>
         <h4>Speed</h4>
