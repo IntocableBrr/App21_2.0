@@ -19,7 +19,7 @@ const GamePlay = () => {
   const [hideMainMenu, setMainMenu] = useState(false);
   const [currentSlide, setSlide] = useState(500);
   let [count, setCount] = useState(0);
-
+//----------------------------------------Start Of The Handlers
   const instructionsbackHandler = (event) => {
     if (event.target.value === 'Back') {
       setMainMenu(false);
@@ -101,7 +101,7 @@ const GamePlay = () => {
       setCount(parseInt(event.target.value) + count);
     }
   };
-  //-----------------------------End of the Handlers-------------------------\\
+  //----------------------------End of the Handlers
   if ((count > 20) & (x === false) & (userWon === false)) {
     message = 'Victory';
     userWon === true;
@@ -149,7 +149,7 @@ const GamePlay = () => {
           <button
             hidden={hideButtons}
             className="gameplay_buttons"
-            disabled={disableButton} // -------------- 1
+            disabled={disableButton}
             value="1"
             onClick={gameplayHandler}
           >
@@ -158,7 +158,7 @@ const GamePlay = () => {
           <button
             hidden={hideButtons}
             className="gameplay_buttons"
-            disabled={disableButton} // -------------- 2
+            disabled={disableButton}
             value="2"
             onClick={gameplayHandler}
           >
@@ -167,7 +167,7 @@ const GamePlay = () => {
           <button
             hidden={hideButtons}
             className="gameplay_buttons"
-            disabled={disableButton} // -------------- 3
+            disabled={disableButton}
             value="3"
             onClick={gameplayHandler}
           >
@@ -175,14 +175,14 @@ const GamePlay = () => {
           </button>
           <button
             className="gameplay_buttons"
-            hidden={hideRetryQuit} // -------------- Retry
+            hidden={hideRetryQuit}
             onClick={retryHandler}
           >
             Retry
           </button>
           <button
             className="gameplay_buttons"
-            hidden={false} // -------------- Pause/Quit
+            hidden={false}
             onClick={'Pause' == pauseQuittitle ? pauseHandler : quitHandler}
           >
             {pauseQuittitle}
