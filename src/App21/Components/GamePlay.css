@@ -31,7 +31,7 @@
   margin: 2rem auto;
   width: 6rem;
   height: 10rem;
-  max-width: 50%;
+  max-width: 90%;
   color: rgb(2, 2, 2);
   border: 2px solid #000000;
   font-weight: bold;
@@ -44,7 +44,7 @@
   margin: 2rem auto;
   width: 11.7rem;
   height: 11.5rem;
-  max-width: 50%;
+  max-width: 90%;
   color: rgb(2, 2, 2);
   border: 2px solid #000000;
   font-weight: bold;
@@ -57,7 +57,7 @@
   margin: 2rem auto;
   width: 16rem;
   height: 10rem;
-  max-width: 50%;
+  max-width: 90%;
   color: rgb(2, 2, 2);
   border: 2px solid #000000;
   font-weight: bold;
@@ -70,7 +70,7 @@
   margin: 2rem auto;
   width: 26rem;
   height: 9rem;
-  max-width: 50%;
+  max-width: 90%;
   color: rgb(2, 2, 2);
   border: 2px solid #000000;
   font-weight: bold;
@@ -89,7 +89,7 @@
   border-radius: 12px;
   background-color: rgb(208, 170, 209);
   margin: 2rem auto;
-  max-width: 50%;
+  max-width: 90%;
   color: rgb(2, 2, 2);
   border: 2px solid #000000;
   font-weight: bold;
