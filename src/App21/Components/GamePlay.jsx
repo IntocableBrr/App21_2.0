@@ -49,7 +49,6 @@ const GamePlay = () => {
       speed = currentSlide;
     } else if (event.target.value === 'Discard') {
       setSlide(speed);
-      console.log(ab, 'discard');
     }
 
     if (onPause === true) {
